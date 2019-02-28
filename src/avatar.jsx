@@ -145,8 +145,8 @@ class Avatar extends React.Component {
     return prefix + '-' + s4() + '-' + s4() + '-' + s4()
   }
 
-  onCloseCallback() {
-    this.props.onClose()
+  onCloseCallback(status) {
+    this.props.onClose(status)
   }
 
   onCropCallback(img) {
@@ -259,8 +259,8 @@ class Avatar extends React.Component {
     img.src = srcBase64;
   }
 
-  onCloseClick() {
-    this.setState({ showLoader: true }, () => this.onCloseCallback())
+  onCloseClick(status) {
+    this.setState({ showLoader: true }, () => this.onCloseCallback(status))
   }
 
   init() {
@@ -556,17 +556,17 @@ class Avatar extends React.Component {
             : <div style={style}>
                 <SVGInline
                   svg={SvgOk}
-                  onClick={this.onCloseClick}
+                  onClick={() => this.onCloseClick(true)}
                   width="40px" height="40px"
                   accessibilityLabel="OK"
-                  style={{ marginTop: '5px', opacity: '0.7' }}
+                  style={{ zIndex: '9', marginTop: '5px', opacity: '0.7' }}
                 />
                 <SVGInline
                   svg={SvgCancel}
-                  onClick={this.onCloseClick}
+                  onClick={() => this.onCloseClick(false)}
                   width="40px" height="40px"
                   accessibilityLabel="Cancelar"
-                  style={{ marginLeft: '5px', marginTop: '5px', opacity: '0.7' }}
+                  style={{ zIndex: '9', marginLeft: '5px', marginTop: '5px', opacity: '0.7' }}
                 />
                 <div id={this.containerId} />
               </div>
