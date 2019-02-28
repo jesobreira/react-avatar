@@ -18,7 +18,7 @@
 ```javascript
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Avatar from 'react-avatar-edit'
+import Avatar from '@jesobreira/react-avatar-edit'
 
 class App extends React.Component {
 
@@ -34,7 +34,8 @@ class App extends React.Component {
     this.onBeforeFileLoad = this.onBeforeFileLoad.bind(this)
   }
   
-  onClose() {
+  onClose(status) {
+    // status = true for OK button, false for Cancel button
     this.setState({preview: null})
   }
   
@@ -95,7 +96,7 @@ ReactDOM.render(<App /> , document.getElementById('root'))
 | onCrop(image)          | Function         | Invoked when user drag&drop event stop and return croped image in base64 sting
 | onBeforeFileLoad(file) | Function         | Invoked when user before upload file with internal file loader (etc. check file size)
 | onFileLoad(file)       | Function         | Invoked when user upload file with internal file loader
-| onClose()              | Function         | Invoked when user clicks on close editor button
+| onClose(status)              | Function         | Invoked when user clicks on close editor button
 
 ## Contributing
 
