@@ -23,7 +23,11 @@ module.exports = {
         loader: 'babel-loader',
         test: /\.jsx$/,
         exclude: /node_modules/
-      },
+      }, {
+        loader: 'raw-loader',
+        test: /\.svg$/,
+        exclude: /node_modules/
+      }
     ],
   },
   externals: {
